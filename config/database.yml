@@ -8,7 +8,7 @@ development: &development
   port:     "<%= ENV['DATABASE_PORT'] || '3306' %>"
 
 test: &test
-  adapter: <%= ENV['DATABASE_TEST_ADAPTER'] %>
+  adapter: mysql2
   database: "<%= ENV['DATABASE_TEST_NAME'] %>"<%= ENV['TEST_ENV_NUMBER'] %>
   username: <%= ENV['DATABASE_TEST_USERNAME'] %>
   password: <%= ENV['DATABASE_TEST_PASSWORD']%>

@@ -7,19 +7,28 @@ class UrlController < ApplicationController
 
   post('/') do
     return respond_status('Not valid url') if valid_url?(json_params['url'])
+
     url = UrlService.create(json_params['url'], json_params['shorten'])
-    if url.save
+    if url.is_a?(Url)
+      url.save
       status 201
       render_serializer(url, 'UrlSerializer')
     else
       status 422
-      body render_serializer(url, 'Urlserializer')
+      body respond_status(url.message)
     end
   end
 
   delete('/:shorten') do
-    Url.find_by(shorten: params['shorten']).delete
-    respond_status('Success')
+    url = Url.find_by(shorten: params['shorten'])
+    if url.present?
+       url.delete
+       render_serializer(url, 'UrlSerializer')
+    else
+      status 404
+      body respond_status('Not found')
+    end
+
   end
 
   private

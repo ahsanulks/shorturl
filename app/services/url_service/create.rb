@@ -7,7 +7,7 @@ module UrlService
     end
 
     def perform
-      return Services::InvalidShortenError if Url.exists?(shorten: @shorten)
+      return Services::InvalidShortenError.new if Url.exists?(shorten: @shorten)
 
       url         = Url.new
       url.url     = @url
