@@ -27,4 +27,10 @@ module Services
       super
     end
   end
+
+  class EmailAlreadyExists < ServiceError
+    def initialize(msg = 'Email address already exists')
+      super
+    end
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_19_104154) do
+ActiveRecord::Schema.define(version: 2018_10_06_091622) do
 
   create_table "urls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "url"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 2018_09_19_104154) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shorten"], name: "index_urls_on_shorten"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

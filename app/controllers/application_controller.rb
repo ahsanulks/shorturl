@@ -1,4 +1,5 @@
 require 'sinatra'
+# require 'jwt'
 
 class ApplicationController < Sinatra::Base
 
@@ -22,5 +23,8 @@ class ApplicationController < Sinatra::Base
 
   def render_serializer(resource, serializer)
     serializer.constantize.new(resource).to_json rescue respond_status('not found')
+  end
+
+  def authentication
   end
 end

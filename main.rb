@@ -4,6 +4,7 @@ require 'pry'
 require 'dotenv'
 require 'mysql2'
 require 'sinatra/activerecord'
+require 'jwt'
 
 Dotenv.load
 

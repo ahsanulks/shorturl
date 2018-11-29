@@ -8,6 +8,7 @@ gem 'rake'
 gem 'mysql2'
 gem 'contracts'
 gem 'sinatra-activerecord'
+gem 'jwt'
 
 group :development do
   gem 'pry'
